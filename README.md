@@ -1,13 +1,13 @@
-# 🎮 Game Kertas Batu Gunting – Versi Konsol
+# 🎮 Game Kertas Batu Gunting – Versi UI
 
 Game sederhana berbasis JavaScript murni (Vanilla JS) yang dijalankan melalui browser.  
-Input pemain menggunakan `prompt()` dan hasil permainan ditampilkan melalui **console browser**.
+Input pemain menggunakan tombol dan hasil permainan ditampilkan melalui **browser**.
 
 ---
 
 ## 📌 Deskripsi
 
-Project ini dibuat untuk melatih pemahaman fundamental JavaScript dengan pembaruan dari versi sebelumnya tanpa tampilan visual (UI).  
+Project ini dibuat untuk melatih pemahaman fundamental JavaScript dengan pembaruan dari versi sebelumnya yang tanpa tampilan visual (UI).  
 Fokus utama project adalah pada logika program dan struktur dasar JavaScript.
 
 Game ini mengimplementasikan:
