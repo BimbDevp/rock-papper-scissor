@@ -7,7 +7,7 @@ Input pemain menggunakan `prompt()` dan hasil permainan ditampilkan melalui **co
 
 ## 📌 Deskripsi
 
-Project ini dibuat untuk melatih pemahaman fundamental JavaScript tanpa menggunakan tampilan visual (UI).  
+Project ini dibuat untuk melatih pemahaman fundamental JavaScript dengan pembaruan dari versi sebelumnya tanpa tampilan visual (UI).  
 Fokus utama project adalah pada logika program dan struktur dasar JavaScript.
 
 Game ini mengimplementasikan:
@@ -17,15 +17,16 @@ Game ini mengimplementasikan:
 - Percabangan (if/else)
 - Operator perbandingan
 - Random number generation menggunakan `Math.random()`
+- DOM
 
 ---
 
 ## 🚀 Fitur
 
-- Input pemain menggunakan `prompt()`
+- Input pemain menggunakan tombol
 - Pilihan komputer dihasilkan secara acak
 - Penentuan pemenang menggunakan logika percabangan
-- Output hasil ditampilkan di console
+- Output hasil ditampilkan pada browser
 - Struktur file sederhana dan mudah dipahami
 
 ---

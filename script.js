@@ -1,65 +1,102 @@
 function getComputerChoice(){
     let result = Math.floor(Math.random() * 3);
 
-    if (result === 0) return "batu";
-    if (result === 1) return "kertas";
-    return "gunting";
+    if (result === 0) return "Batu";
+    if (result === 1) return "Kertas";
+    return "Gunting";
 }
 
-
-function getHumanChoice(){
-    let result = prompt("Tentukan pilihan anda? (Kertas/Batu/Gunting");
-    return result.toLowerCase();
-}
 
 
 
 function playRound(humanChoice, computerChoice){
-   let result;
+    let result;
+    let status;
 
    if (humanChoice === computerChoice) {
-    result = "seri";
-    console.log(`user memeilih ${humanChoice} dan komputer memilih ${computerChoice}. Hasil SERI!`);
-    return result;
+    status = "SERI";
+    result = `Kamu memilih ${humanChoice} dan Computer memilih ${computerChoice}. Hasil SERI!`
+    return {
+        status,
+        result
+    };
     
    } 
 
-   if ((humanChoice === "batu" && computerChoice === "gunting") ||
-        (humanChoice === "kertas" && computerChoice === "batu") ||
-        (humanChoice === "gunting" && computerChoice === "kertas")) {
-            result = "menang";
-            console.log(`user memilih ${humanChoice} dan computer memilih ${computerChoice}. Kamu MENANG!`);
-            return result;
+   if ((humanChoice === "Batu" && computerChoice === "Gunting") ||
+        (humanChoice === "Kertas" && computerChoice === "Batu") ||
+        (humanChoice === "Gunting" && computerChoice === "Kertas")) {
+            status = "MENANG";
+            result = `Kamu memilih ${humanChoice} dan Computer memilih ${computerChoice}. Kamu MENANG!`
+            return {
+                status,
+                result
+            }
         } else {
-            result = "kalah";
-            console.log(`User memilih ${humanChoice} dan computer memilih ${computerChoice}. Kamu KALAH!`);
-            return result;
+            status = "KALAH";
+            result = `Kamu memilih ${humanChoice} dan Computer memilih ${computerChoice}. Kamu KALAH!`
+            return {
+                status,
+                result
+            };
         }
                 
 }
 
-function playGame(){
-    let humanScore = 0;
-    let computerScore = 0;
-    
-    
-    
-    for (let i = 0; i < 5; i++){
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
-        const play = playRound(humanSelection, computerSelection);
 
-        if (play === "menang") humanScore++;
-        if (play === "kalah") computerScore++;
+
+
+
+
+const result = document.querySelector(".result");
+const rate = document.querySelector(".score");
+const rock = document.querySelector(".rock");
+const papper = document.querySelector(".papper");
+const scissor = document.querySelector(".scissor");
+let humanScore = 0;
+let computerScore = 0;
+let gameOver = false;
+
+function handleRound(selection) {
+    
+    if (gameOver) return;
+
+    const select = playRound(selection, getComputerChoice());
+    result.textContent = select.result;
+
+    if (select.status === "MENANG") {
+        humanScore += 1;
+    } else if (select.status === "KALAH") {
+        computerScore += 1;
     }
 
-    return `Hasil pertandingan: Skor User: ${humanScore}, Skor Komputer: ${computerScore}`;
+    rate.textContent = `Kamu: ${humanScore} | Computer: ${computerScore}`;
+
+
+   
+        if (humanScore >= 5) {
+            result.textContent = "Kamu MENANG!";
+            gameOver = true;
+        } else if (computerScore >= 5) {
+            result.textContent = "Kamu KALAH!";
+            gameOver = true;
+        }
+    
+
+
 }
 
+rock.addEventListener("click", () => {
+    handleRound("Batu");
+});
 
 
-console.log(playGame());
+papper.addEventListener("click", () => {
+    handleRound("Kertas");
+});
 
-
+scissor.addEventListener("click", () => {
+    handleRound("Gunting")
+});
 
 
